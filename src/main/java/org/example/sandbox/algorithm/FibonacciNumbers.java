@@ -1,18 +1,17 @@
 package org.example.sandbox.algorithm;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class FibonacciNumbers {
 
-    public static void main(String[] args) {
+    private Map<Integer, Long> dictionary;
 
-        FibonacciNumbers fn = new FibonacciNumbers();
-
-        for(int x = 0; x <= 55; x ++) {
-            System.out.println("fib(" + x + ") = " + fn.fib(x));
-        }
-
+    public FibonacciNumbers() {
+        this.dictionary = new HashMap<>();
     }
 
-    private long fib(int n) {
+    public long fib(int n) {
 
         if(n == 0) {
             return 0;
@@ -22,7 +21,20 @@ public class FibonacciNumbers {
             return 1;
         }
 
-        return fib(n-1) + fib(n - 2);
+        return memo(n-1) + memo(n - 2);
+    }
+
+    private long memo(int m) {
+
+        Long value = dictionary.get(m);
+
+        if (value != null) {
+            return value;
+        }
+
+        value = fib(m);
+        dictionary.put(Integer.valueOf(m), value);
+        return value;
     }
 
 }
