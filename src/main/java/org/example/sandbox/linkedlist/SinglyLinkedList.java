@@ -131,7 +131,6 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
         return contains;
     }
 
-    @Override
     public int size() {
 
         int counter = 0;
