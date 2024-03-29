@@ -12,6 +12,7 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
         tail = null;
     }
 
+    // O(1)
     @Override
     public void addFirst(E element) {
 
@@ -26,6 +27,7 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
 
     }
 
+    // O(1)
     @Override
     public void addLast(E element) {
 
@@ -40,6 +42,7 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
 
     }
 
+    // O(1)
     @Override
     public E pollFirst() {
 
@@ -63,6 +66,7 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
         return element;
     }
 
+    // O(n)
     @Override
     public E pollLast() {
 
@@ -91,21 +95,24 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
         return element;
     }
 
+    // O(1)
     @Override
     public E peekFirst() {
         return head.element;
     }
 
+    // O(1)
     @Override
     public E peekLast() {
         return tail.element;
     }
 
+    // O(n)
     @Override
     public void clear() {
 
         Node current = head;
-        while (current.next != null) {
+        while (current.next != null) { // O(n)
             Node next = current.next;
             current.next = null;
             current = next;
@@ -115,6 +122,7 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
         tail = null;
     }
 
+    // O(n)
     @Override
     public boolean contains(E element) {
 
@@ -131,6 +139,7 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
         return contains;
     }
 
+    // O(n)
     public int size() {
 
         int counter = 0;
@@ -149,6 +158,7 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
         return counter;
     }
 
+    // O(n)
     public String toString() {
 
         StringBuilder builder = new StringBuilder("[");
@@ -166,7 +176,7 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
         return builder.toString();
     }
 
-
+    // O(1) - creating a new class
     private class Node {
 
         E element;
