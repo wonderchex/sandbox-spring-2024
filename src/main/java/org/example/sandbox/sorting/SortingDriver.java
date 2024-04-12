@@ -44,8 +44,11 @@ public class SortingDriver {
         System.out.println((stop - start) + "ns");
 
         System.out.println("\nQuick Sort...");
+        start = System.nanoTime();
         SortingUtility.quickSort(copy4);
+        stop = System.nanoTime();
         printFirstTenOfArray(copy4);
+        System.out.println((stop - start) + "ns");
 
         System.out.println("\nMerge Sort...");
         SortingUtility.mergeSort(copy5);
